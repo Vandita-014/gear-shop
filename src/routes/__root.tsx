@@ -90,16 +90,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  // Don't render full document elements inside the client-side React tree.
+  // HeadContent and Scripts are provided by the router; render them
+  // without wrapping in <html>/<head>/<body> to avoid DOM nesting warnings.
   return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
+    <>
+      <HeadContent />
+      {children}
+      <Scripts />
+    </>
   );
 }
 
