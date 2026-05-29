@@ -1,0 +1,70 @@
+// Design tokens — Northridge premium outdoor gear store
+// Palette: Forest & Moss. Type: Space Grotesk + DM Sans.
+
+// Palette
+$color-bg: #f6f4ee;            // warm paper
+$color-bg-deep: #ecebe2;       // section band
+$color-surface: #ffffff;
+$color-surface-tint: #fbfaf5;
+$color-ink: #11261a;           // near-black forest
+$color-ink-muted: #5b6a60;
+$color-ink-soft: #97a39b;
+$color-border: #dbd9cf;
+$color-border-strong: #11261a;
+$color-accent: #2d5a3d;        // deep forest
+$color-accent-hover: #1a3c2a;
+$color-accent-soft: #e4ece6;
+$color-moss: #5a8a5c;
+$color-moss-soft: #a0c49d;
+$color-sale: #b23a2a;
+$color-warn: #b8741a;
+$color-disabled-bg: #ececec;
+$color-disabled-ink: #b5b5b5;
+
+// Typography
+$font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif;
+$font-display: "Space Grotesk", "DM Sans", -apple-system, BlinkMacSystemFont,
+  sans-serif;
+
+$fs-xs: 12px;
+$fs-sm: 13px;
+$fs-base: 15px;
+$fs-md: 16px;
+$fs-lg: 18px;
+$fs-xl: 22px;
+$fs-2xl: 30px;
+$fs-3xl: 40px;
+$fs-4xl: 56px;
+
+// Spacing — 4px grid
+$sp-1: 4px;
+$sp-2: 8px;
+$sp-3: 12px;
+$sp-4: 16px;
+$sp-5: 20px;
+$sp-6: 24px;
+$sp-8: 32px;
+$sp-10: 40px;
+$sp-12: 48px;
+$sp-16: 64px;
+$sp-20: 80px;
+
+// Radius
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-pill: 999px;
+
+// Breakpoints
+$bp-mobile: 767px;
+
+// Motion
+$ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+$dur-fast: 140ms;
+$dur: 240ms;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(17, 38, 26, 0.06);
+$shadow-md: 0 10px 30px -10px rgba(17, 38, 26, 0.18);
+$shadow-lg: 0 24px 60px -20px rgba(17, 38, 26, 0.25);

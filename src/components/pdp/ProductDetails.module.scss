@@ -1,0 +1,118 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.wrap {
+  margin-top: $sp-16;
+  border-top: 1px solid $color-border;
+
+  @include mobile { margin-top: $sp-10; }
+}
+
+.item {
+  border-bottom: 1px solid $color-border;
+}
+
+.trigger {
+  @include reset-button;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $sp-6 0;
+  font-family: $font-display;
+  font-size: $fs-lg;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: -0.005em;
+  transition: color $dur-fast $ease;
+
+  &:hover { color: $color-accent; }
+  &:focus-visible { @include focus-ring; outline-offset: -2px; }
+}
+
+.icon {
+  font-size: $fs-2xl;
+  color: $color-accent;
+  transition: transform $dur $ease;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.iconOpen { transform: rotate(45deg); }
+
+.panel {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows $dur $ease;
+}
+
+.panelOpen { grid-template-rows: 1fr; }
+
+.panelInner {
+  min-height: 0;
+  padding-bottom: $sp-6;
+  color: $color-ink-muted;
+  line-height: 1.75;
+  font-size: $fs-md;
+  max-width: 65ch;
+}
+
+.specs {
+  width: 100%;
+  border-collapse: collapse;
+
+  tr { border-bottom: 1px solid $color-border; }
+
+  th, td {
+    text-align: left;
+    padding: $sp-4 0;
+    font-size: $fs-sm;
+  }
+
+  th {
+    width: 40%;
+    color: $color-ink-muted;
+    font-weight: 600;
+    font-family: $font-display;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: $fs-xs;
+  }
+
+  td { color: $color-ink; font-weight: 500; }
+}
+
+.reviews { display: grid; gap: $sp-4; }
+
+.review {
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: $sp-5;
+  background: $color-surface;
+}
+
+.reviewHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $sp-2;
+}
+
+.reviewer {
+  font-family: $font-display;
+  font-weight: 600;
+  color: $color-ink;
+}
+
+.stars {
+  color: $color-accent;
+  font-size: $fs-sm;
+  letter-spacing: 2px;
+}
+
+.reviewBody {
+  color: $color-ink-muted;
+  font-size: $fs-sm;
+  line-height: 1.7;
+}

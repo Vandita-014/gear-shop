@@ -1,0 +1,50 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.wrap { display: flex; flex-direction: column; gap: $sp-3; }
+
+.label {
+  font-family: $font-display;
+  font-size: $fs-xs;
+  color: $color-ink-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+
+  strong {
+    color: $color-ink;
+    font-family: $font-sans;
+    font-weight: 500;
+    margin-left: $sp-2;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: $fs-sm;
+  }
+}
+
+.row { display: flex; gap: $sp-3; flex-wrap: wrap; }
+
+.swatch {
+  @include reset-button;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  padding: 3px;
+  transition: border-color $dur-fast $ease, transform $dur-fast $ease;
+
+  &:hover { transform: scale(1.08); }
+  &:focus-visible { @include focus-ring; }
+}
+
+.swatchActive {
+  border-color: $color-accent;
+}
+
+.dot {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+}

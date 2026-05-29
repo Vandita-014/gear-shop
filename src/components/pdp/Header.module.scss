@@ -1,0 +1,119 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(180deg, rgba($color-bg, 0.96), rgba($color-bg-deep, 0.90));
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid rgba($color-ink, 0.06);
+}
+
+.inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: $sp-4 $sp-8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $sp-4;
+
+  @include mobile {
+    padding: $sp-3 $sp-4;
+  }
+}
+
+.logo {
+  font-family: $font-display;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  font-size: $fs-md;
+  text-transform: uppercase;
+  color: $color-ink;
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-2;
+
+  &::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: $color-accent;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba($color-accent, 0.15);
+  }
+}
+
+.nav {
+  display: flex;
+  gap: $sp-6;
+  font-size: $fs-sm;
+  font-weight: 500;
+  color: $color-ink-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  a {
+    text-decoration: none;
+    transition: color $dur-fast $ease;
+    &:hover { color: $color-ink; }
+  }
+
+  @include mobile { display: none; }
+}
+
+.cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-2;
+  font-size: $fs-sm;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: $sp-2 $sp-3;
+  border-radius: $radius-pill;
+  border: 1px solid rgba($color-ink, 0.12);
+  background: $color-surface;
+  transition: border-color $dur-fast $ease, transform $dur-fast $ease;
+
+  &:hover { border-color: $color-ink; }
+}
+
+.badge {
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  background: $color-accent;
+  color: #fff;
+  border-radius: $radius-pill;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $fs-xs;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.crumbs {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: $sp-5 $sp-8 0;
+  font-size: $fs-sm;
+  color: $color-ink-muted;
+  letter-spacing: 0.02em;
+
+  a {
+    text-decoration: none;
+    &:hover { color: $color-ink; }
+  }
+
+  @include mobile { padding: $sp-3 $sp-4 0; }
+}
+
+.sep {
+  margin: 0 $sp-2;
+  color: $color-ink-soft;
+}

@@ -1,0 +1,86 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.page {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: $sp-8 $sp-8 $sp-16;
+  background: linear-gradient(180deg, rgba($color-bg, 0.94), rgba($color-bg-deep, 0.96));
+  border-radius: $radius-lg;
+  box-shadow: 0 34px 90px -48px rgba($color-ink, 0.3);
+
+  @include mobile {
+    padding: $sp-4 $sp-4 $sp-12;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 58fr 42fr;
+  gap: $sp-16;
+  align-items: start;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $sp-6;
+  }
+}
+
+.right {
+  position: sticky;
+  top: 96px;
+
+  @include mobile {
+    position: static;
+  }
+}
+
+.loading,
+.errorBox {
+  text-align: center;
+  padding: $sp-20 $sp-4;
+  color: $color-ink-muted;
+}
+
+.errorBox h2 {
+  color: $color-ink;
+  font-family: $font-display;
+  margin: 0 0 $sp-2;
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: 58fr 42fr;
+  gap: $sp-16;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $sp-6;
+  }
+}
+
+.skel {
+  background: linear-gradient(
+    90deg,
+    rgba($color-ink, 0.04) 0%,
+    rgba($color-ink, 0.08) 50%,
+    rgba($color-ink, 0.04) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+  border-radius: $radius-md;
+}
+
+.skelImage {
+  aspect-ratio: 1 / 1;
+}
+
+.skelLine {
+  height: 14px;
+  margin-bottom: $sp-3;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

@@ -1,0 +1,187 @@
+@use "sass:color";
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-6;
+}
+
+.brand {
+  font-family: $font-display;
+  font-size: $fs-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: $color-accent;
+  font-weight: 600;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: $sp-2 0 0;
+  color: $color-ink;
+
+  @include mobile { font-size: $fs-2xl; }
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: $sp-2;
+  font-size: $fs-sm;
+  color: $color-ink-muted;
+}
+
+.stars {
+  color: $color-accent;
+  letter-spacing: 2px;
+  font-size: $fs-md;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: $sp-3;
+  padding: $sp-4 0 $sp-2;
+  border-top: 1px solid $color-border;
+}
+
+.price {
+  font-family: $font-display;
+  font-size: $fs-2xl;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.priceSale { color: $color-sale; }
+
+.priceOriginal {
+  font-size: $fs-md;
+  color: $color-ink-soft;
+  text-decoration: line-through;
+}
+
+.saleBadge {
+  font-family: $font-display;
+  font-size: $fs-xs;
+  background: $color-sale;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: $radius-pill;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.cta {
+  @include reset-button;
+  width: 100%;
+  height: 56px;
+  background: linear-gradient(135deg, $color-accent, $color-moss);
+  color: $color-bg;
+  border-radius: $radius-pill;
+  font-family: $font-display;
+  font-size: $fs-md;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background $dur-fast $ease, transform $dur-fast $ease, box-shadow $dur-fast $ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $sp-2;
+  box-shadow: $shadow-md;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(
+      135deg,
+      color.adjust($color-accent, $lightness: -18.8889%),
+      $color-moss
+    );
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+
+  &:active:not(:disabled) { transform: translateY(0); }
+
+  &:disabled {
+    background: $color-disabled-bg;
+    color: $color-disabled-ink;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  &:focus-visible { @include focus-ring; }
+}
+
+.added {
+  background: linear-gradient(
+    135deg,
+    color.adjust($color-moss, $lightness: -22.3684%),
+    color.adjust($color-accent, $lightness: -37.7778%)
+  ) !important;
+}
+
+.added { background: $color-accent !important; }
+
+.delivery {
+  display: flex;
+  align-items: center;
+  gap: $sp-2;
+  font-size: $fs-sm;
+  color: $color-ink-muted;
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: $color-moss;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 3px rgba($color-moss, 0.2);
+  }
+}
+
+.error {
+  color: $color-sale;
+  font-size: $fs-sm;
+}
+
+.divider {
+  height: 1px;
+  background: $color-border;
+  margin: $sp-2 0;
+}
+
+.perks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $sp-3;
+  padding: $sp-4;
+  background: $color-accent-soft;
+  border-radius: $radius-md;
+  border: 1px solid rgba($color-accent, 0.12);
+
+  @include mobile { grid-template-columns: 1fr; gap: $sp-2; }
+}
+
+.perk {
+  font-size: $fs-xs;
+  color: $color-ink;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  strong {
+    display: block;
+    font-family: $font-display;
+    font-weight: 600;
+    color: $color-accent;
+    margin-bottom: 2px;
+  }
+}

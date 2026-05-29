@@ -1,0 +1,80 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.wrap { display: flex; flex-direction: column; gap: $sp-3; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.label {
+  font-family: $font-display;
+  font-size: $fs-xs;
+  color: $color-ink-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+}
+
+.guide {
+  @include reset-button;
+  font-size: $fs-sm;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: $color-ink-muted;
+  &:hover { color: $color-accent; }
+}
+
+.row { display: flex; flex-wrap: wrap; gap: $sp-2; }
+
+.size {
+  @include reset-button;
+  min-width: 56px;
+  height: 48px;
+  padding: 0 $sp-4;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-surface;
+  font-family: $font-display;
+  font-size: $fs-base;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $dur-fast $ease;
+
+  &:hover:not(:disabled) {
+    border-color: $color-ink;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible { @include focus-ring; }
+}
+
+.active {
+  background: $color-ink;
+  color: $color-bg;
+  border-color: $color-ink;
+}
+
+.lowStock {
+  border-color: $color-warn;
+  color: $color-warn;
+}
+
+.soldOut {
+  color: $color-disabled-ink;
+  background: $color-disabled-bg;
+  border-color: transparent;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.hint {
+  min-height: 18px;
+  font-size: $fs-sm;
+  color: $color-warn;
+  font-weight: 500;
+}

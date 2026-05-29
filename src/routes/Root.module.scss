@@ -1,0 +1,91 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: $sp-8;
+  background: radial-gradient(circle at top left, rgba($color-accent, 0.12), transparent 22%),
+    linear-gradient(180deg, $color-bg 0%, $color-bg-deep 100%);
+}
+
+.card {
+  width: min(100%, 560px);
+  padding: $sp-10;
+  border-radius: $radius-lg;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba($color-ink, 0.1);
+  box-shadow: $shadow-lg;
+  backdrop-filter: blur(20px);
+}
+
+.title {
+  margin: 0;
+  font-family: $font-display;
+  font-size: clamp(2.6rem, 4vw, 4.4rem);
+  letter-spacing: -0.05em;
+  color: $color-ink;
+}
+
+.subtitle {
+  margin: $sp-3 0 0;
+  color: $color-ink-muted;
+  line-height: 1.8;
+  font-size: $fs-md;
+}
+
+.actions {
+  margin-top: $sp-6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $sp-3;
+}
+
+.button,
+.primaryButton,
+.secondaryButton {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-pill;
+  font-family: $font-display;
+  font-size: $fs-sm;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  min-height: 48px;
+  padding: 0 $sp-5;
+  transition: transform $dur-fast $ease, box-shadow $dur-fast $ease, background $dur-fast $ease;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, $color-accent, $color-moss);
+  color: #fff;
+  box-shadow: $shadow-sm;
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+  box-shadow: $shadow-md;
+}
+
+.primaryButton:focus-visible {
+  @include focus-ring;
+}
+
+.secondaryButton {
+  background: rgba($color-ink, 0.08);
+  color: $color-ink;
+  border: 1px solid rgba($color-ink, 0.12);
+}
+
+.secondaryButton:hover {
+  background: rgba($color-ink, 0.14);
+}
+
+.secondaryButton:focus-visible {
+  @include focus-ring;
+}
